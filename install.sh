@@ -2,6 +2,7 @@
 
 docker load -i ./setupfolder/httpd.tar
 docker load -i ./setupfolder/artifactory.tar
+docker load -i ./setupfolder/gitlab.tar
 mkdir -p ./jcr/var
 chown -R 1030:1030 ./jcr/var
 openssl genrsa -out ca.key 4096
