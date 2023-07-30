@@ -31,7 +31,6 @@
 2. In UI, go to Administration->JFrog Container Registry->General->HTTP Settings->Choose Port in 'Docker Access Method'
 3. changing certificates: 
     * obtain key and cert issued by your CA for the server.
-    * In gitlab change the content of the files `./gitlab/config/ssl/<server>.key` with key and `./gitlab/config/ssl/<server>.crt`
+    * In gitlab change the content of the files `./gitlab/config/ssl/<server>.key` and `./gitlab/config/ssl/<server>.crt`
     * change the content of the files `./jcr/<server>.key` with key and `./jcr/<server>.cert`
-4. restart the docker stack by "docker stack rm xxxx" and "docker stack deploy -c docker-compose.yml xxx"  
-3. restart the docker stack by "docker stack rm xxxx" and "docker stack deploy -c docker-compose.yml xxx" 
+4. restart the docker stack by `docker stack rm <server>` and `docker stack deploy -c docker-compose.yml <server>`  
