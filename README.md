@@ -13,7 +13,7 @@
         * httpd.tar
 2. cd to directory where you wish to store the data in
 3. untar jfrog.tar.gz to jfrog (`tar -xzf jfrog.tar.gz`)
-4. replace <host> in paramater RequestHeader with your host within setupfolder/httpd.conf
+4. replace `<host>` in paramater RequestHeader with your host within setupfolder/httpd.conf
 5. replace OU and, CN and DNS in install.sh with your host and DNS
 6. run the following command:
     * `sudo ./install.sh <server>` (replace server with host name, for example *example.local*)
@@ -21,7 +21,7 @@
 8. check that artifactroy is working by going to `https://<server>` 
     * default user: admin 
     * default password: password
-9. check that gitlab is working by going to https://<server>:8443 
+9. check that gitlab is working by going to `https://<server>:8443` 
     * default user: root 
     * password: NotSecurePassword123! 
 
@@ -31,7 +31,7 @@
 2. In UI, go to Administration->JFrog Container Registry->General->HTTP Settings->Choose Port in 'Docker Access Method'
 3. changing certificates: 
     * obtain key and cert issued by your CA for the server.
-    * In gitlab change the content of the files ./gitlab/config/ssl/<server>.key with key and ./gitlab/config/ssl/<server>.crt
-    * change the content of the files `./jcr/<server>.key with key and ./jcr/<server>.cert
+    * In gitlab change the content of the files `./gitlab/config/ssl/<server>.key` with key and `./gitlab/config/ssl/<server>.crt`
+    * change the content of the files `./jcr/<server>.key` with key and `./jcr/<server>.cert`
 4. restart the docker stack by "docker stack rm xxxx" and "docker stack deploy -c docker-compose.yml xxx"  
 3. restart the docker stack by "docker stack rm xxxx" and "docker stack deploy -c docker-compose.yml xxx" 
