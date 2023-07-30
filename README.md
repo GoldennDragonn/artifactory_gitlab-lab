@@ -6,9 +6,7 @@
 
 # Installation
 
-1. download images from xxxxx storage to your `setupfolder`:
-    * server - xxxxxx
-    * path - /xxxxx/xxxxx/gitlab-files
+1. download images your `setupfolder`:
     * files to download:
         * artifactory.tar
         * gitlab.tar
@@ -18,7 +16,7 @@
 4. replace <host> in paramater RequestHeader with your host within setupfolder/httpd.conf
 5. replace OU and, CN and DNS in install.sh with your host and DNS
 6. run the following command:
-    * `sudo ./install-jfrog.sh <server>` (replace server with host name, for example *example.local*)
+    * `sudo ./install.sh <server>` (replace server with host name, for example *example.local*)
 7. wait 5 minutes until jfrog is up
 8. check that artifactroy is working by going to `https://<server>` 
     * default user: admin 
