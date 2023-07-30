@@ -21,6 +21,9 @@ sed -i "s/replaceHost/$1/gi" ./docker-compose.yml
 
 mkdir -p ./gitlab
 chown -R 1030:1030 ./gitlab
+mkdir -p ./gitlab/data
+mkdir -p ./gitlab/logs
+mkdir -p ./gitlab/config
 cp ./setupfolder/root_password.txt ./gitlab/
 cp ./setupfolder/gitlab.rb ./gitlab/
 

@@ -24,7 +24,7 @@ services:
     #  - "8081:8081"
     #  - "8082:8082"
     # build:
-    entrypoint: ./docker-entrypoint.sh
+    # entrypoint: ./docker-entrypoint.sh
     volumes:
       - ./jcr/var:/var/opt/jfrog/artifactory
     environment:
