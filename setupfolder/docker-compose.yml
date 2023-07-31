@@ -1,7 +1,7 @@
 version: "3.6"
 services:
   gitlab:
-    image: gitlab-ce:15.2.2-ce.0
+    image: gitlab/gitlab-ce:15.2.2-ce.0
     ports:
       - "2222:2222"
       - "8443:8443"
@@ -19,7 +19,7 @@ services:
       - gitlab_root_password
 
   artifactory-jcr:
-    image: artifactory-jcr:7.41.7
+    image: releases-docker.jfrog.io/jfrog/artifactory-jcr:7.41.7
     #ports:
     #  - "8081:8081"
     #  - "8082:8082"
