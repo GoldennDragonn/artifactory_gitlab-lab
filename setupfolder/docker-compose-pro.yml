@@ -1,0 +1,53 @@
+version: "3.6"
+services:
+  gitlab:
+    image: gitlab/gitlab-ce:16.3.6-ce.0
+    ports:
+      - "2222:2222"
+      - "8443:8443"
+    volumes:
+      - ./gitlab/data:/var/opt/gitlab
+      - ./gitlab/logs:/var/log/gitlab
+      - ./gitlab/config:/etc/gitlab
+    # shm_size: '256m'
+    environment:
+      GITLAB_OMNIBUS_CONFIG: "from_file('/omnibus_config.rb')"
+    configs:
+      - source: gitlab
+        target: /omnibus_config.rb
+    secrets:
+      - gitlab_root_password
+
+  artifactory-jcr:
+    image: releases-docker.jfrog.io/jfrog/artifactory-pro:7.71.4
+    #ports:
+    #  - "8081:8081"
+    #  - "8082:8082"
+    # build:
+    # entrypoint: ./docker-entrypoint.sh
+    volumes:
+      - ./jcr/var:/var/opt/jfrog/artifactory
+    environment:
+    # - JF_ROUTER_ENTRYPOINTS_EXTERNALPORT=${JF_ROUTER_ENTRYPOINTS_EXTERNALPORT}
+      - "8081:8081"
+  apache:
+    image: httpd:2.4.58
+    secrets:
+      - replaceHost.key
+      - replaceHost.cert
+    ports:
+      - "443:443"
+      - "4000:4000"
+    volumes:
+      - ./jcr/httpd.conf:/usr/local/apache2/conf/httpd.conf
+secrets:
+  replaceHost.key:
+    file: ./jcr/replaceHost.key
+  replaceHost.cert:
+    file: ./jcr/replaceHost.cert
+  gitlab_root_password:
+    file: ./gitlab/root_password.txt
+
+configs:
+  gitlab:
+    file: ./gitlab/gitlab.rb
